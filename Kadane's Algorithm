@@ -1,0 +1,26 @@
+Kadane's Algorithm
+https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1?page=1&sortBy=submissions
+
+Given an integer array arr[]. You need to find the maximum sum of a subarray.
+
+
+class Solution {
+
+    // Function to find the sum of contiguous subarray with maximum sum.
+    int maxSubarraySum(int[] arr) {
+        int maxsum = Integer.MIN_VALUE; // Initialize maxsum to smallest integer value
+        int sum = 0; // Current sum of the subarray
+        
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i]; // Add current element to sum
+            maxsum = Math.max(maxsum, sum); // Update maxsum if current sum is greater
+            
+            // Reset sum to 0 if it becomes negative
+            if (sum < 0) {
+                sum = 0;
+            }
+        }
+        
+        return maxsum;
+    }
+}
