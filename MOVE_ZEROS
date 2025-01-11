@@ -1,0 +1,23 @@
+MOVE_ZEROS
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int temp[];
+        int n=nums.length;
+        int nonZeroIndex = 0; // Pointer for placing non-zero elements
+
+        for(int i=0;i<n;i++){
+             if (nums[i] != 0) {
+                nums[nonZeroIndex] = nums[i];
+                nonZeroIndex++;
+            }
+        }
+      
+        
+        for (int i = nonZeroIndex; i < n; i++) {
+            nums[i] = 0;
+        }
+        
+    }}
